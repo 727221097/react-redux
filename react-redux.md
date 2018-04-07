@@ -37,6 +37,7 @@ ReactDOM.render(
 
 ##### 4. store 文件
 ```
+// 引入 createStore 方法 用于创建 store
 import { createStore } from 'redux'
 import reducer from './reducer'
 
@@ -50,6 +51,8 @@ export default store
 import { combineReducers } from 'redux'
 import classify from './classify'
 
+// 在这里进行了合并 reducer 使得多个 reducer 成为对象的 value 综合到一起 最后输出一个 reducer 
+
 const reducer = combineReducers({
     classify
 })
@@ -59,6 +62,7 @@ export default reducer
 
 ##### 6. classify 文件
 ```
+// 每一个单独的 reducer 文件
 const classify = (state = {name: 'classIfy', data: null}, action) => {
     switch(action.type){
         case 'GET_OFFSETHEIGHT':
@@ -75,10 +79,12 @@ export default classify
 ```
 import { connect } from "react-redux"
 
+// 在组建内链接
+export default connect(null, null, null, { pure: false })(ClassIfy)
+
 // 如果只需要第四个参数的话 ， 前面几个参数都可以传 null
 // connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
-export default connect(mapStateToProps, mapDispatchToprops, mergeProps, { pure: false })(ClassIfy)
-export default connect(null, null, null, { pure: false })(ClassIfy)
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps, [option])(ClassIfy)
 
 // connect 中有四个参数
 1. mapStateToprops : [ mapStateToProps(state, [ownProps]): stateProps]
