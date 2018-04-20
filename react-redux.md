@@ -46,14 +46,14 @@ const store = createStore(reducer)
 export default store
 ```
 
-##### 5. reducer 文件
+##### 5. reducers 文件
 ```
 import { combineReducers } from 'redux'
 import classify from './classify'
 
 // 在这里进行了合并 reducer 使得多个 reducer 成为对象的 value 综合到一起 最后输出一个 reducer 
 
-const reducer = combineReducers({
+const reducers = combineReducers({
     classify
 })
 
